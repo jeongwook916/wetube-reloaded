@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
 
+console.log(process.env.DB_URL);
+
 mongoose.set("strictQuery", false);
 
-mongoose.connect("mongodb://127.0.0.1:27017/wetube", {
-   useNewUrlParser: true,
-   useUnifiedTopology: true,
+mongoose.connect(process.env.DB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
